@@ -1,0 +1,180 @@
+[
+    {
+        "id": 1,
+        "name": "Ученые и исследователи",
+        "icon": "Uchenii.png",
+        "scores": [
+            {
+                "type": "platinum",
+                "reason": "Земля",
+                "amount": 2,
+                "date": "2025-01-16",
+                "signature": "Сашв",
+                "action": "add"
+            },
+            {
+                "type": "platinum",
+                "reason": "Земля",
+                "amount": 2,
+                "date": "2025-01-16",
+                "signature": "Саша",
+                "action": "add"
+            },
+            {
+                "type": "aluminum",
+                "reason": "Земля",
+                "amount": 1,
+                "date": "2025-01-16",
+                "signature": "Саша",
+                "action": "add"
+            },
+            {
+                "type": "aluminum",
+                "reason": "Земля",
+                "amount": -1,
+                "date": "2025-01-16",
+                "signature": "Саша",
+                "action": "subtract"
+            },
+            {
+                "type": "aluminum",
+                "reason": "Земля",
+                "amount": 1,
+                "date": "2025-01-16",
+                "signature": "Саша",
+                "action": "add"
+            },
+            {
+                "type": "aluminum",
+                "reason": "Земля",
+                "amount": 1,
+                "date": "2025-01-16",
+                "signature": "Саша",
+                "action": "add"
+            },
+            {
+                "type": "aluminum",
+                "reason": "Земля",
+                "amount": -1,
+                "date": "2025-01-16",
+                "signature": "Саша",
+                "action": "subtract"
+            }
+        ],
+        "active": true
+    },
+    {
+        "id": 2,
+        "name": "Инженеры транспорта и связи",
+        "icon": "Communication.png",
+        "scores": [
+            {
+                "type": "platinum",
+                "reason": "Земля",
+                "amount": 1,
+                "date": "2025-01-17",
+                "signature": "Саша",
+                "action": "add"
+            }
+        ],
+        "active": true
+    },
+    {
+        "id": 3,
+        "name": "Бизнесмены и менеджеры",
+        "icon": "Buisness.png",
+        "scores": [
+            {
+                "type": "platinum",
+                "reason": "Земля",
+                "amount": 1,
+                "date": "2025-01-09",
+                "signature": "Саша",
+                "action": "add"
+            }
+        ],
+        "active": true
+    },
+    {
+        "id": 4,
+        "name": "Туроператоры и маркетологи",
+        "icon": "Marketing.png",
+        "scores": [
+            {
+                "type": "platinum",
+                "reason": "Земля",
+                "amount": 1,
+                "date": "2025-01-09",
+                "signature": "Саша",
+                "action": "add"
+            },
+            {
+                "type": "platinum",
+                "reason": "Земля",
+                "amount": -1,
+                "date": "2025-01-09",
+                "signature": "Саша",
+                "action": "subtract"
+            },
+            {
+                "type": "platinum",
+                "reason": "Земля",
+                "amount": 1,
+                "date": "2025-01-09",
+                "signature": "Саша",
+                "action": "add"
+            },
+            {
+                "type": "platinum",
+                "reason": "Земля",
+                "amount": 1,
+                "date": "2025-01-09",
+                "signature": "Саша",
+                "action": "add"
+            }
+        ],
+        "active": true
+    },
+    {
+        "id": 5,
+        "name": "Энергетики и техники",
+        "icon": "Energy.png",
+        "scores": [],
+        "active": true
+    },
+    {
+        "id": 6,
+        "name": "Повара и агрономы",
+        "icon": "Povar.png",
+        "scores": [],
+        "active": false
+    },
+    {
+        "id": 7,
+        "name": "Медики и биологи",
+        "icon": "Doctor.png",
+        "scores": [],
+        "active": false
+    },
+    {
+        "id": 8,
+        "name": "Экологи и переработчики отходов",
+        "icon": "Eco.png",
+        "scores": [],
+        "active": false
+    },
+    {
+        "id": 9,
+        "name": "Инженеры-строители и дизайнеры",
+        "icon": "Construction.png",
+        "scores": [],
+        "active": false
+    },
+    {
+        "id": 10,
+        "name": "Психологи и культурологи",
+        "icon": "Culture.png",
+        "scores": [],
+        "active": false
+    }
+]

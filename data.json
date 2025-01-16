@@ -1,0 +1,81 @@
+[
+  {
+    "id": 1,
+    "name": "Ученые и исследователи",
+    "icon": "Uchenii.png",
+    "scores": [],
+    "active": false
+  },
+  {
+    "id": 2,
+    "name": "Инженеры транспорта и связи",
+    "icon": "Communication.png",
+    "scores": [],
+    "active": true
+  },
+  {
+    "id": 3,
+    "name": "Бизнесмены и менеджеры",
+    "icon": "Buisness.png",
+    "scores": [],
+    "active": false
+  },
+  {
+    "id": 4,
+    "name": "Туроператоры и маркетологи",
+    "icon": "Marketing.png",
+    "scores": [],
+    "active": true
+  },
+  {
+    "id": 5,
+    "name": "Энергетики и техники",
+    "icon": "Energy.png",
+    "scores": [
+      {
+        "type": "aluminum",
+        "reason": "Постройка новой линии электропередач",
+        "amount": 1,
+        "date": "2025-01-18",
+        "signature": "Саша",
+        "action": "add"
+      }
+    ],
+    "active": true
+  },
+  {
+    "id": 6,
+    "name": "Повара и агрономы",
+    "icon": "Povar.png",
+    "scores": [],
+    "active": false
+  },
+  {
+    "id": 7,
+    "name": "Медики и биологи",
+    "icon": "Doctor.png",
+    "scores": [],
+    "active": false
+  },
+  {
+    "id": 8,
+    "name": "Экологи и переработчики отходов",
+    "icon": "Eco.png",
+    "scores": [],
+    "active": true
+  },
+  {
+    "id": 9,
+    "name": "Инженеры-строители и дизайнеры",
+    "icon": "Construction.png",
+    "scores": [],
+    "active": false
+  },
+  {
+    "id": 10,
+    "name": "Психологи и культурологи",
+    "icon": "Culture.png",
+    "scores": [],
+    "active": true
+  }
+]

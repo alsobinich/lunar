@@ -32,14 +32,6 @@
     "name": "Энергетики и техники",
     "icon": "Energy.png",
     "scores": [
-      {
-        "type": "aluminum",
-        "reason": "Постройка новой линии электропередач",
-        "amount": 1,
-        "date": "2025-01-18",
-        "signature": "Саша",
-        "action": "add"
-      }
     ],
     "active": true
   },

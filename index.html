@@ -248,28 +248,30 @@
   <div id="activeProfessions"></div>
 
   <!-- Модальное окно -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <h2 id="modalTitle">Добавить баллы</h2>
-      <label for="type">Тип баллов:</label>
-      <select id="type">
-        <option value="aluminum">Алюминий</option>
-        <option value="platinum">Платина</option>
-      </select>
-      <label for="reason">Причина:</label>
-      <input type="text" id="reason" placeholder="Введите причину">
-      <label for="amount">Количество:</label>
-      <input type="number" id="amount" min="1" placeholder="Введите количество">
-      <label for="date">Дата:</label>
-      <input type="date" id="date">
-      <label for="signature">Подпись:</label>
-      <input type="text" id="signature" placeholder="Введите подпись">
-      <div class="modal-footer">
-        <button class="cancel" onclick="closeModal()">Отмена</button>
-        <button class="confirm" onclick="submitModal()">Сохранить</button>
-      </div>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h2 id="modalTitle">Добавить баллы</h2>
+    <label for="type">Тип баллов:</label>
+    <select id="type">
+      <option value="aluminum">Алюминий</option>
+      <option value="platinum">Платина</option>
+    </select>
+    <label for="reason">Причина:</label>
+    <input type="text" id="reason" placeholder="Введите причину">
+    <label for="amount">Количество:</label>
+    <input type="number" id="amount" min="1" placeholder="Введите количество">
+    <label for="date">Дата:</label>
+    <input type="date" id="date">
+    <label for="signature">Подпись:</label>
+    <input type="text" id="signature" placeholder="Введите подпись">
+    <label for="secretCode">Секретный код:</label>
+    <input type="password" id="secretCode" placeholder="Введите секретный код">
+    <div class="modal-footer">
+      <button class="cancel" onclick="closeModal()">Отмена</button>
+      <button class="confirm" onclick="submitModal()">Сохранить</button>
     </div>
   </div>
+</div>
 
   <script>
     const professions = [
@@ -283,10 +285,12 @@
       { id: 8, name: "Экологи и переработчики отходов", icon: "Eco.png", scores: [], active: false },
       { id: 9, name: "Инженеры-строители и дизайнеры", icon: "Construction.png", scores: [], active: false },
       { id: 10, name: "Психологи и культурологи", icon: "Culture.png", scores: [], active: false }
+  
     ];
 
     let currentProfession = null;
     let actionType = "add";
+    const SECRET_CODE = "LUNAR113"; // 
 
     function renderCheckboxes() {
       const container = document.getElementById("professionCheckboxes");
@@ -364,37 +368,42 @@
       currentProfession = null;
     }
 
-    function submitModal() {
-  const type = document.getElementById("type").value;
-  const reason = document.getElementById("reason").value;
-  const amount = parseInt(document.getElementById("amount").value, 10);
-  const date = document.getElementById("date").value;
-  const signature = document.getElementById("signature").value;
+  function submitModal() {
+    const type = document.getElementById("type").value;
+    const reason = document.getElementById("reason").value;
+    const amount = parseInt(document.getElementById("amount").value, 10);
+    const date = document.getElementById("date").value;
+    const signature = document.getElementById("signature").value;
+    const secretCode = document.getElementById("secretCode").value;
 
-  if (!amount || !reason || !date || !signature) {
-    alert("Пожалуйста, заполните все поля.");
-    return;
-  }
+    if (!amount || !reason || !date || !signature || !secretCode) {
+        alert("Пожалуйста, заполните все поля.");
+        return;
+    }
 
-  const profession = professions.find(p => p.id === currentProfession);
-  if (!profession) {
-    alert("Ошибка: профессия не найдена.");
-    return;
-  }
+    if (secretCode !== SECRET_CODE) {
+        alert("Неверный секретный код.");
+        return;
+    }
 
-  profession.scores.push({
-    type,
-    reason,
-    amount: actionType === "subtract" ? -amount : amount,
-    date,
-    signature,
-    action: actionType
-  });
+    const profession = professions.find(p => p.id === currentProfession);
+    if (!profession) {
+        alert("Ошибка: профессия не найдена.");
+        return;
+    }
 
-  renderProfessions();
-  closeModal();
+    profession.scores.push({
+        type,
+        reason,
+        amount: actionType === "subtract" ? -amount : amount,
+        date,
+        signature,
+        action: actionType
+    });
 
-  saveData(); // Сохраняем данные после изменений
+    renderProfessions();
+    saveData(); // Сохраняем данные на сервер
+    closeModal();
 }
 
 document.addEventListener("DOMContentLoaded", async () => {

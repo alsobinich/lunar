@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #870581}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #97007e}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #b50013}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #000000}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #885d30}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #000000; min-height: 16.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #0d6401}
+    span.s1 {color: #97007e}
+    span.s2 {color: #6f5a1e}
+    span.s3 {color: #b50013}
+    span.s4 {color: #000000}
+    span.s5 {color: #1400c4}
+    span.s6 {color: #885d30}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE <span class="s1">html</span>&gt;</p>
+<p class="p2">&lt;html <span class="s2">lang</span>=<span class="s3">"en"</span>&gt;</p>
+<p class="p2">&lt;head&gt;</p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">  </span></span>&lt;meta <span class="s2">charset</span>=<span class="s3">"UTF-8"</span>&gt;</p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;meta </span><span class="s2">name</span><span class="s1">=</span>"viewport"<span class="s1"> </span><span class="s2">content</span><span class="s1">=</span>"width=device-width, initial-scale=1.0"<span class="s1">&gt;</span></p>
+<p class="p4"><span class="Apple-converted-space">  </span><span class="s1">&lt;title&gt;</span>Подсчет баллов<span class="s1">&lt;/title&gt;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">  </span></span>&lt;style&gt;</p>
+<p class="p4"><span class="Apple-converted-space">    </span><span class="s1">body</span> {</p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">font-family</span>: Arial, sans-serif;</p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">margin</span>: <span class="s5">20px</span>;</p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">    </span></span>.profession<span class="s4"> {</span></p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">display</span>: inline-block;</p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">text-align</span>: center;</p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">margin</span>: <span class="s5">10px</span>;</p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">    </span></span>.profession<span class="s4"> </span><span class="s1">img</span><span class="s4"> {</span></p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">width</span>: <span class="s5">50px</span>;</p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">height</span>: <span class="s5">50px</span>;</p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">    </span></span>.points<span class="s4"> {</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">      </span></span>margin-top<span class="s4">: </span><span class="s5">5px</span><span class="s4">;</span></p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">    </span></span>.events<span class="s4"> {</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">      </span></span>margin-top<span class="s4">: </span><span class="s5">10px</span><span class="s4">;</span></p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p4"><span class="Apple-converted-space">    </span><span class="s6">.events</span> <span class="s1">ul</span> {</p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">      </span></span>list-style-type<span class="s4">: none;</span></p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">padding</span>: <span class="s5">0</span>;</p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">    </span></span>.profession-selection<span class="s4"> {</span></p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">margin</span>: <span class="s5">20px</span> <span class="s5">0</span>;</p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">  </span></span>&lt;/style&gt;</p>
+<p class="p2">&lt;/head&gt;</p>
+<p class="p2">&lt;body&gt;</p>
+<p class="p4"><span class="Apple-converted-space">  </span><span class="s1">&lt;h1&gt;</span>Подсчет баллов<span class="s1">&lt;/h1&gt;</span></p>
+<p class="p6"><br></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;div </span><span class="s2">id</span><span class="s1">=</span>"activeProfessions"<span class="s1">&gt;&lt;/div&gt;</span></p>
+<p class="p6"><br></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;div </span><span class="s2">class</span><span class="s1">=</span>"profession-selection"<span class="s1">&gt;</span></p>
+<p class="p4"><span class="Apple-converted-space">    </span><span class="s1">&lt;h2&gt;</span>Выберите активные профессии:<span class="s1">&lt;/h2&gt;</span></p>
+<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;div </span><span class="s2">id</span><span class="s1">=</span>"professionCheckboxes"<span class="s1">&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">  </span></span>&lt;/div&gt;</p>
+<p class="p6"><br></p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">  </span></span>&lt;script&gt;</p>
+<p class="p4"><span class="Apple-converted-space">    </span><span class="s1">const</span> professions = [</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">1</span>, <span class="s2">name</span>: <span class="s3">'Инженер'</span>, <span class="s2">icon</span>: <span class="s3">'🔧'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">2</span>, <span class="s2">name</span>: <span class="s3">'Медик'</span>, <span class="s2">icon</span>: <span class="s3">'⚕️'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">3</span>, <span class="s2">name</span>: <span class="s3">'Астронавт'</span>, <span class="s2">icon</span>: <span class="s3">'🚀'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">4</span>, <span class="s2">name</span>: <span class="s3">'Строитель'</span>, <span class="s2">icon</span>: <span class="s3">'🏗️'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">5</span>, <span class="s2">name</span>: <span class="s3">'Геолог'</span>, <span class="s2">icon</span>: <span class="s3">'🪨'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">6</span>, <span class="s2">name</span>: <span class="s3">'Физик'</span>, <span class="s2">icon</span>: <span class="s3">'🔬'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">7</span>, <span class="s2">name</span>: <span class="s3">'Эколог'</span>, <span class="s2">icon</span>: <span class="s3">'🌱'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">8</span>, <span class="s2">name</span>: <span class="s3">'Программист'</span>, <span class="s2">icon</span>: <span class="s3">'💻'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">9</span>, <span class="s2">name</span>: <span class="s3">'Химик'</span>, <span class="s2">icon</span>: <span class="s3">'⚗️'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">      </span>{ <span class="s2">id</span>: <span class="s5">10</span>, <span class="s2">name</span>: <span class="s3">'Арт-дизайнер'</span>, <span class="s2">icon</span>: <span class="s3">'🎨'</span>, <span class="s2">platinum</span>: <span class="s5">0</span>, <span class="s2">aluminum</span>: <span class="s5">0</span>, <span class="s2">events</span>: [] },</p>
+<p class="p4"><span class="Apple-converted-space">    </span>];</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">    </span><span class="s1">const</span> activeProfessionsContainer = document.getElementById(<span class="s3">'activeProfessions'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">    </span><span class="s1">const</span> professionCheckboxesContainer = document.getElementById(<span class="s3">'professionCheckboxes'</span>);</p>
+<p class="p6"><br></p>
+<p class="p7"><span class="s4"><span class="Apple-converted-space">    </span></span>// Render checkboxes</p>
+<p class="p4"><span class="Apple-converted-space">    </span>professions.forEach(profession =&gt; {</p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">const</span> checkbox = document.createElement(<span class="s3">'input'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">      </span>checkbox.type = <span class="s3">'checkbox'</span>;</p>
+<p class="p4"><span class="Apple-converted-space">      </span>checkbox.id = <span class="s3">`profession-</span>${profession.id}<span class="s3">`</span>;</p>
+<p class="p4"><span class="Apple-converted-space">      </span>checkbox.addEventListener(<span class="s3">'change'</span>, () =&gt; toggleProfession(profession));</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">const</span> label = document.createElement(<span class="s3">'label'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">      </span>label.htmlFor = checkbox.id;</p>
+<p class="p4"><span class="Apple-converted-space">      </span>label.textContent = profession.name;</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">const</span> container = document.createElement(<span class="s3">'div'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">      </span>container.appendChild(checkbox);</p>
+<p class="p4"><span class="Apple-converted-space">      </span>container.appendChild(label);</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">      </span>professionCheckboxesContainer.appendChild(container);</p>
+<p class="p4"><span class="Apple-converted-space">    </span>});</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">    </span><span class="s1">function</span> toggleProfession(profession) {</p>
+<p class="p4"><span class="Apple-converted-space">      </span>profession.active = !profession.active;</p>
+<p class="p4"><span class="Apple-converted-space">      </span>renderActiveProfessions();</p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">    </span><span class="s1">function</span> addEvent(profession, type, reason) {</p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">const</span> event = {</p>
+<p class="p4"><span class="Apple-converted-space">        </span>type,</p>
+<p class="p4"><span class="Apple-converted-space">        </span>reason,</p>
+<p class="p4"><span class="Apple-converted-space">        </span><span class="s2">date</span>: <span class="s1">new</span> Date().toLocaleString(),</p>
+<p class="p4"><span class="Apple-converted-space">      </span>};</p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">if</span> (type === <span class="s3">'platinum'</span>) profession.platinum++;</p>
+<p class="p4"><span class="Apple-converted-space">      </span><span class="s1">if</span> (type === <span class="s3">'aluminum'</span>) profession.aluminum++;</p>
+<p class="p4"><span class="Apple-converted-space">      </span>profession.events.push(event);</p>
+<p class="p4"><span class="Apple-converted-space">      </span>renderActiveProfessions();</p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">    </span><span class="s1">function</span> renderActiveProfessions() {</p>
+<p class="p4"><span class="Apple-converted-space">      </span>activeProfessionsContainer.innerHTML = <span class="s3">''</span>;</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">      </span>professions</p>
+<p class="p4"><span class="Apple-converted-space">        </span>.filter(profession =&gt; profession.active)</p>
+<p class="p4"><span class="Apple-converted-space">        </span>.forEach(profession =&gt; {</p>
+<p class="p4"><span class="Apple-converted-space">          </span><span class="s1">const</span> container = document.createElement(<span class="s3">'div'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>container.className = <span class="s3">'profession'</span>;</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">          </span><span class="s1">const</span> icon = document.createElement(<span class="s3">'div'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>icon.textContent = profession.icon;</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">          </span><span class="s1">const</span> name = document.createElement(<span class="s3">'div'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>name.textContent = profession.name;</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">          </span><span class="s1">const</span> points = document.createElement(<span class="s3">'div'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>points.className = <span class="s3">'points'</span>;</p>
+<p class="p4"><span class="Apple-converted-space">          </span>points.innerHTML = <span class="s3">`Платина: </span>${profession.platinum}<span class="s3">&lt;br&gt;Алюминий: </span>${profession.aluminum}<span class="s3">`</span>;</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">          </span><span class="s1">const</span> events = document.createElement(<span class="s3">'div'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>events.className = <span class="s3">'events'</span>;</p>
+<p class="p4"><span class="Apple-converted-space">          </span><span class="s1">const</span> eventList = document.createElement(<span class="s3">'ul'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>profession.events.forEach(event =&gt; {</p>
+<p class="p4"><span class="Apple-converted-space">            </span><span class="s1">const</span> listItem = document.createElement(<span class="s3">'li'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">            </span>listItem.textContent = <span class="s3">`</span>${event.date}<span class="s3">: </span>${event.reason}<span class="s3"> (</span>${event.type}<span class="s3">)`</span>;</p>
+<p class="p4"><span class="Apple-converted-space">            </span>eventList.appendChild(listItem);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>});</p>
+<p class="p4"><span class="Apple-converted-space">          </span>events.appendChild(eventList);</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">          </span><span class="s1">const</span> platinumButton = document.createElement(<span class="s3">'button'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>platinumButton.textContent = <span class="s3">'Добавить Платину'</span>;</p>
+<p class="p4"><span class="Apple-converted-space">          </span>platinumButton.addEventListener(<span class="s3">'click'</span>, () =&gt;</p>
+<p class="p4"><span class="Apple-converted-space">            </span>addEvent(profession, <span class="s3">'platinum'</span>, <span class="s3">'За достижение'</span>)</p>
+<p class="p4"><span class="Apple-converted-space">          </span>);</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">          </span><span class="s1">const</span> aluminumButton = document.createElement(<span class="s3">'button'</span>);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>aluminumButton.textContent = <span class="s3">'Добавить Алюминий'</span>;</p>
+<p class="p4"><span class="Apple-converted-space">          </span>aluminumButton.addEventListener(<span class="s3">'click'</span>, () =&gt;</p>
+<p class="p4"><span class="Apple-converted-space">            </span>addEvent(profession, <span class="s3">'aluminum'</span>, <span class="s3">'За участие'</span>)</p>
+<p class="p4"><span class="Apple-converted-space">          </span>);</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">          </span>container.appendChild(icon);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>container.appendChild(name);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>container.appendChild(points);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>container.appendChild(events);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>container.appendChild(platinumButton);</p>
+<p class="p4"><span class="Apple-converted-space">          </span>container.appendChild(aluminumButton);</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">          </span>activeProfessionsContainer.appendChild(container);</p>
+<p class="p4"><span class="Apple-converted-space">        </span>});</p>
+<p class="p4"><span class="Apple-converted-space">    </span>}</p>
+<p class="p6"><br></p>
+<p class="p4"><span class="Apple-converted-space">    </span>renderActiveProfessions();</p>
+<p class="p2"><span class="s4"><span class="Apple-converted-space">  </span></span>&lt;/script&gt;</p>
+<p class="p2">&lt;/body&gt;</p>
+<p class="p2">&lt;/html&gt;</p>
+</body>
+</html>

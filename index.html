@@ -4,57 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Подсчет баллов</title>
-  
-<style>
-
+  <style>
     body {
       font-family: Futura, sans-serif;
       margin: 20px;
-      background-color: rgb(255, 255, 255); /* Белый фон */
-      color: rgb(0, 0, 0); /* Чёрный текст */
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
     }
 
     h1 {
       color: rgb(0, 0, 0);
-      text-align: left; /* Заголовок слева */
+      text-align: left;
       margin-bottom: 20px;
     }
 
     #professionCheckboxes {
-      display: flex; /* Используем flexbox */
+      display: flex;
       flex-direction: column;
-      margin: 0 auto; /* Центрируем блок */
+      margin: 0 auto;
       text-align: left;
     }
 
     #activeProfessions {
       display: flex;
-      flex-wrap: wrap; /* Перенос карточек на следующую строку */
-      gap: 20px; /* Отступы между карточками */
-      justify-content: flex-start; /* Выравниваем карточки по левому краю */
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start;
     }
 
     .profession {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Элементы располагаются сверху вниз */
-  align-items: center;
-  text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  width: 300px; /* Фиксированная ширина карточки */
-  height: 520px; /* Фиксированная высота карточки */
-  background-color: white; /* Белый фон */
-  color: black; /* Чёрный текст */
-  box-sizing: border-box;
-  overflow: hidden; /* Убираем элементы, выходящие за границы */
-}
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      width: 300px;
+      height: 520px;
+      background-color: white;
+      color: black;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
 
     .profession img {
       width: 100px;
       height: 100px;
-      object-fit: contain; /* Масштабируем изображение без искажений */
+      object-fit: contain;
       margin-bottom: 10px;
     }
 
@@ -62,10 +60,10 @@
       width: 100%;
       line-height: 1.2;
       text-align: center;
-      height: calc(1.2em * 2); /* Высота для двух строк */
+      height: calc(1.2em * 2);
       overflow: hidden;
-      margin-bottom: 10px; /* Отступ после заголовка */
-      word-wrap: break-word; /* Переносим длинные слова */
+      margin-bottom: 10px;
+      word-wrap: break-word;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -73,7 +71,7 @@
 
     .scores {
       display: flex;
-      justify-content: space-around; /* Равномерное распределение иконок */
+      justify-content: space-around;
       align-items: center;
       width: 100%;
       margin-top: 10px;
@@ -94,7 +92,7 @@
       display: flex;
       justify-content: space-around;
       width: 100%;
-      margin-top: 20px; /* Отступ между кнопками и материалами */
+      margin-top: 20px;
     }
 
     .add-button, .subtract-button {
@@ -123,33 +121,40 @@
       background-color: #e53935;
     }
 
- .log-list {
-  margin-top: 10px;
-  list-style: none;
-  padding: 0;
-  width: 100%; /* Лог занимает всю ширину карточки */
-  height: 150px; /* Фиксированная высота для логов */
-  overflow-y: auto; /* Включаем вертикальную прокрутку */
-  text-align: left;
-  background-color: #f9f9f9; /* Светлый фон для логов */
-  border: 1px solid #ddd; /* Граница для отделения логов */
-  border-radius: 5px;
-  box-sizing: border-box;
-}
+    .log-list {
+      margin-top: 10px;
+      list-style: none;
+      padding: 0;
+      width: 100%;
+      height: 150px;
+      overflow-y: auto;
+      text-align: left;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
 
- .log-item {
-  margin-bottom: 8px;
-  padding: 5px;
-  background-color: white; /* Белый фон для каждой записи */
-  border-bottom: 1px solid #ddd; /* Разделитель между логами */
-  font-size: 14px; /* Уменьшенный текст для компактности */
-  color: black;
-}
+    .log-item {
+      margin-bottom: 8px;
+      padding: 5px;
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+      font-size: 14px;
+      color: black;
+    }
 
+    .log-item span.amount {
+      font-weight: bold;
+    }
 
-.log-item:last-child {
-  border-bottom: none; /* Убираем линию в последнем элементе */
-}
+    .log-item span.add {
+      color: green;
+    }
+
+    .log-item span.subtract {
+      color: red;
+    }
 
     .modal {
       display: none;
@@ -161,336 +166,129 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
     }
-.modal-content {
-  background-color: rgb(0, 0, 0);
-  margin: 15% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%; /* Ширина окна */
-  max-width: 400px; /* Максимальная ширина */
-  box-sizing: border-box; /* Учитываем padding внутри ширины */
-  color: white; /* Белый текст */
-}
 
-.modal-content input,
-.modal-content select {
-  width: calc(100% - 20px); /* Уменьшаем ширину полей ввода с учётом отступов */
-  max-width: 100%; /* Гарантируем, что поля ввода не выйдут за границы окна */
-  padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-sizing: border-box; /* Учитываем внутренние отступы */
-}
+    .modal-content {
+      background-color: rgb(0, 0, 0);
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      box-sizing: border-box;
+      color: white;
+    }
 
-.modal-content label {
-  display: block;
-  margin-top: 10px;
-}
+    .modal-content input, .modal-content select {
+      width: calc(100% - 20px);
+      max-width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
 
-.modal-footer {
-  display: flex;
-  justify-content: flex-end;
-}
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+    }
 
-.modal-footer button {
-  margin-left: 10px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .modal-footer button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-.modal-footer .cancel {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-}
+    .modal-footer .cancel {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+    }
 
-.modal-footer .cancel:hover {
-  background-color: #e53935;
-}
+    .modal-footer .cancel:hover {
+      background-color: #e53935;
+    }
 
-.modal-footer .confirm {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-}
+    .modal-footer .confirm {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+    }
 
-.modal-footer .confirm:hover {
-  background-color: #45a049;
-}
-
-.log-item span.amount {
-  font-weight: bold; /* Выделяем текст */
-}
-
-.log-item span.add {
-  color: green; /* Зелёный цвет для получения */
-}
-
-.log-item span.subtract {
-  color: red; /* Красный цвет для траты */
-}
-
-</style>
-
-
-
+    .modal-footer .confirm:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
   <h1>Подсчет баллов</h1>
 
   <!-- Список профессий с галочками -->
-  <div id="professionCheckboxes" style="margin-bottom: 20px;"></div>
-
-  
+  <div id="professionCheckboxes"></div>
   <!-- Активные профессии -->
   <div id="activeProfessions"></div>
 
   <!-- Модальное окно -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <h2 id="modalTitle">Добавить баллы</h2>
-    <label for="type">Тип баллов:</label>
-    <select id="type">
-      <option value="aluminum">Алюминий</option>
-      <option value="platinum">Платина</option>
-    </select>
-    <label for="reason">Причина:</label>
-    <input type="text" id="reason" placeholder="Введите причину">
-    <label for="amount">Количество:</label>
-    <input type="number" id="amount" min="1" placeholder="Введите количество">
-    <label for="date">Дата:</label>
-    <input type="date" id="date">
-    <label for="signature">Подпись:</label>
-    <input type="text" id="signature" placeholder="Введите подпись">
-    <label for="secretCode">Секретный код:</label>
-    <input type="password" id="secretCode" placeholder="Введите секретный код">
-    <div class="modal-footer">
-      <button class="cancel" onclick="closeModal()">Отмена</button>
-      <button class="confirm" onclick="submitModal()">Сохранить</button>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2 id="modalTitle">Добавить баллы</h2>
+      <label for="type">Тип баллов:</label>
+      <select id="type">
+        <option value="aluminum">Алюминий</option>
+        <option value="platinum">Платина</option>
+      </select>
+      <label for="reason">Причина:</label>
+      <input type="text" id="reason" placeholder="Введите причину">
+      <label for="amount">Количество:</label>
+      <input type="number" id="amount" min="1" placeholder="Введите количество">
+      <label for="date">Дата:</label>
+      <input type="date" id="date">
+      <label for="signature">Подпись:</label>
+      <input type="text" id="signature" placeholder="Введите подпись">
+      <div class="modal-footer">
+        <button class="cancel" onclick="closeModal()">Отмена</button>
+        <button class="confirm" onclick="submitModal()">Сохранить</button>
+      </div>
     </div>
   </div>
-</div>
 
   <script>
-    const professions = [
-      { id: 1, name: "Ученые и исследователи", icon: "Uchenii.png", scores: [], active: false },
-      { id: 2, name: "Инженеры транспорта и связи", icon: "Communication.png", scores: [], active: false },
-      { id: 3, name: "Бизнесмены и менеджеры", icon: "Buisness.png", scores: [], active: false },
-      { id: 4, name: "Туроператоры и маркетологи", icon: "Marketing.png", scores: [], active: false },
-      { id: 5, name: "Энергетики и техники", icon: "Energy.png", scores: [], active: false },
-      { id: 6, name: "Повара и агрономы", icon: "Povar.png", scores: [], active: false },
-      { id: 7, name: "Медики и биологи", icon: "Doctor.png", scores: [], active: false },
-      { id: 8, name: "Экологи и переработчики отходов", icon: "Eco.png", scores: [], active: false },
-      { id: 9, name: "Инженеры-строители и дизайнеры", icon: "Construction.png", scores: [], active: false },
-      { id: 10, name: "Психологи и культурологи", icon: "Culture.png", scores: [], active: false }
-  
-    ];
+    const SECRET_CODE = "LUNAR113"; 
+    const API_URL = "/api/update-json";
 
-    let currentProfession = null;
-    let actionType = "add";
-    const SECRET_CODE = "LUNAR113"; // 
-
-    function renderCheckboxes() {
-      const container = document.getElementById("professionCheckboxes");
-      container.innerHTML = "<h2>Выберите профессии:</h2>";
-      professions.forEach(prof => {
-        const div = document.createElement("div");
-        div.innerHTML = `
-          <input type="checkbox" id="checkbox-${prof.id}" ${prof.active ? "checked" : ""} onchange="toggleProfession(${prof.id})">
-          <label for="checkbox-${prof.id}">${prof.name}</label>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-  function renderProfessions() {
-  const container = document.getElementById("activeProfessions");
-  container.innerHTML = "";
-  professions.filter(prof => prof.active).forEach(prof => {
-    const totalAluminum = prof.scores.filter(s => s.type === "aluminum").reduce((sum, s) => sum + s.amount, 0);
-    const totalPlatinum = prof.scores.filter(s => s.type === "platinum").reduce((sum, s) => sum + s.amount, 0);
-
-    const div = document.createElement("div");
-    div.className = "profession";
-    div.innerHTML = `
-      <img src="${prof.icon}" alt="${prof.name}">
-      <h3>${prof.name}</h3>
-      <div class="scores">
-        <div class="score">
-          <img src="aluminum.png" alt="Алюминий">
-          <p>Алюминий: ${totalAluminum}</p>
-        </div>
-        <div class="score">
-          <img src="platinum.png" alt="Платина">
-          <p>Платина: ${totalPlatinum}</p>
-        </div>
-      </div>
-      <div>
-        <button class="add-button" onclick="openModal(${prof.id}, 'add')">+</button>
-        <button class="subtract-button" onclick="openModal(${prof.id}, 'subtract')">-</button>
-      </div>
-      <ul class="log-list">
-        ${prof.scores.map(log => `
-          <li class="log-item">
-            ${log.date} 
-            <span class="amount ${log.action === "add" ? "add" : "subtract"}">
-              ${Math.abs(log.amount)} ${log.type === "aluminum" ? "aluminum" : "platinum"}
-            </span>
-            за ${log.reason}, ${log.action === "add" ? "выдал" : "забрал"} ${log.signature}.
-          </li>
-        `).join("")}
-      </ul>
-    `;
-    container.appendChild(div);
-  });
-}
-
-    function toggleProfession(professionId) {
-      const profession = professions.find(p => p.id === professionId);
-      if (!profession) return;
-
-      profession.active = !profession.active;
-      renderProfessions();
-    }
-
-    function openModal(professionId, type) {
-      currentProfession = professionId;
-      actionType = type;
-
-      document.getElementById("modalTitle").textContent = type === "add" ? "Добавить баллы" : "Убавить баллы";
-      document.getElementById("modal").style.display = "block";
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-      currentProfession = null;
-    }
-
-  function submitModal() {
-    const type = document.getElementById("type").value;
-    const reason = document.getElementById("reason").value;
-    const amount = parseInt(document.getElementById("amount").value, 10);
-    const date = document.getElementById("date").value;
-    const signature = document.getElementById("signature").value;
-    const secretCode = document.getElementById("secretCode").value;
-
-    if (!amount || !reason || !date || !signature || !secretCode) {
-        alert("Пожалуйста, заполните все поля.");
-        return;
-    }
-
-    if (secretCode !== SECRET_CODE) {
-        alert("Неверный секретный код.");
-        return;
-    }
-
-    const profession = professions.find(p => p.id === currentProfession);
-    if (!profession) {
-        alert("Ошибка: профессия не найдена.");
-        return;
-    }
-
-    profession.scores.push({
-        type,
-        reason,
-        amount: actionType === "subtract" ? -amount : amount,
-        date,
-        signature,
-        action: actionType
-    });
-
-    renderProfessions();
-    saveData(); // Сохраняем данные на сервер
-    closeModal();
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadData(); // Загружаем данные
-  renderCheckboxes(); // Отображаем список профессий
-  renderProfessions(); // Отображаем активные профессии
-});
-
-async function saveData() {
-    console.log('saveData() вызвана');
-    try {
-        const response = await fetch('/api/update-json', { // Убедитесь, что URL указывает на ваш API-роут
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(professions), // Отправляем массив данных
+    async function saveData() {
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ newContent: professions }),
         });
-
         if (!response.ok) {
-            throw new Error(`Ошибка сохранения: ${response.statusText}`);
+          throw new Error("Ошибка сохранения: " + response.statusText);
         }
-
-        const result = await response.json();
-        console.log(result.message);
-    } catch (error) {
-        console.error('Ошибка при сохранении данных:', error);
+        console.log("Сохранение выполнено успешно.");
+      } catch (error) {
+        console.error("Ошибка при сохранении данных:", error);
+      }
     }
-}
 
-async function loadData() {
-  console.log("Загрузка данных из data.json");
-  try {
-    const response = await fetch('data.json');
-    if (!response.ok) {
-      throw new Error(`Ошибка загрузки: ${response.statusText}`);
+    async function loadData() {
+      try {
+        const response = await fetch("data.json");
+        if (!response.ok) {
+          throw new Error("Ошибка загрузки: " + response.statusText);
+        }
+        const data = await response.json();
+        professions.splice(0, professions.length, ...data);
+        renderCheckboxes();
+        renderProfessions();
+      } catch (error) {
+        console.error("Ошибка при загрузке данных:", error);
+      }
     }
-    const data = await response.json();
-    // Обновляем массив professions
-    professions.splice(0, professions.length, ...data);
-    renderProfessions(); // Перерисовываем интерфейс
-    renderCheckboxes(); // Перерисовываем галочки
-  } catch (error) {
-    console.error("Ошибка при загрузке данных:", error);
-  }
-}
-
-function addScore() {
-  console.log('addScore() вызвана'); // Проверяем вызов функции
-
-  const type = document.getElementById('type').value;
-  const reason = document.getElementById('reason').value;
-  const amount = parseInt(document.getElementById('amount').value, 10);
-  const date = document.getElementById('date').value;
-  const signature = document.getElementById('signature').value;
-
-  // Проверяем, что данные заполнены
-  if (!amount || !reason || !date || !signature) {
-    alert('Пожалуйста, заполните все поля.');
-    return;
-  }
-
-  // Находим текущую профессию
-  const profession = professions.find(p => p.id === currentProfession);
-  if (!profession) {
-    alert('Профессия не найдена.');
-    return;
-  }
-
-  // Добавляем данные в массив
-  profession.scores.push({
-    type,
-    reason,
-    amount,
-    date,
-    signature,
-  });
-
-  console.log('Лог добавлен в массив:', profession.scores); // Проверяем добавление данных
-
-  renderProfessions(); // Обновляем отображение карточек
-
-  saveData(); // Сохраняем данные в data.json через сервер
-  closeModal(); // Закрываем модальное окно
-}
-
-
   </script>
 </body>
 </html>

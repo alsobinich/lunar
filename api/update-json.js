@@ -1,7 +1,6 @@
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
-  // Разрешаем только POST-запросы
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Метод не поддерживается. Используйте POST.' });
   }
@@ -12,14 +11,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Нет данных для обновления.' });
   }
 
-  const token = process.env.GITHUB_TOKEN; // Получаем токен из переменных окружения
-  const repoOwner = 'alsobinich'; // Ваш логин на GitHub
-  const repoName = 'lunar'; // Название репозитория
-  const filePath = 'data.json'; // Файл, который вы хотите обновлять
-  const branch = 'main'; // Ветка, в которой находится файл
+  const token = process.env.GITHUB_TOKEN;
+  const repoOwner = 'alsobinich';
+  const repoName = 'lunar';
+  const filePath = 'data.json';
+  const branch = 'main';
 
   try {
-    // Шаг 1: Получаем SHA текущего файла
+    // Получаем SHA текущего файла
     const fileResponse = await fetch(
       `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`,
       {
@@ -34,9 +33,9 @@ export default async function handler(req, res) {
     }
 
     const fileData = await fileResponse.json();
-    const sha = fileData.sha; // Текущий SHA файла
+    const sha = fileData.sha;
 
-    // Шаг 2: Обновляем содержимое файла
+    // Обновляем содержимое файла
     const updateResponse = await fetch(
       `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`,
       {
@@ -46,8 +45,8 @@ export default async function handler(req, res) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: 'Обновление data.json через API', // Комментарий к коммиту
-          content: Buffer.from(JSON.stringify(newContent, null, 2)).toString('base64'), // Новое содержимое файла
+          message: 'Обновление data.json через API',
+          content: Buffer.from(JSON.stringify(newContent, null, 2)).toString('base64'),
           sha: sha,
           branch: branch,
         }),
